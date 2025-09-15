@@ -1,0 +1,107 @@
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.iconContainer {
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.searchIcon {
+  color: #76DD00;
+  filter: drop-shadow(0 0 10px rgba(118, 221, 0, 0.3));
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.message {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.searchTerm {
+  color: #76DD00;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(118, 221, 0, 0.3);
+}
+
+.clearButton {
+  background: rgba(118, 221, 0, 0.1);
+  border: 2px solid #76DD00;
+  color: #76DD00;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.clearButton:hover {
+  background: rgba(118, 221, 0, 0.2);
+  box-shadow: 0 0 15px rgba(118, 221, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .notFoundContainer {
+    padding: 30px 15px;
+    margin: 15px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .message {
+    font-size: 14px;
+  }
+
+  .clearButton {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .iconContainer {
+    margin-bottom: 15px;
+  }
+
+  .searchIcon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .message {
+    font-size: 13px;
+  }
+}

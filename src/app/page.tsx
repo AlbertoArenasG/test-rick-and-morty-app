@@ -7,6 +7,11 @@ import styles from './page.module.css';
 import Background from '@/components/Background/Background';
 import Logo from '@/components/Logo/Logo';
 import MainModal from '@/components/MainModal/MainModal';
+import dynamic from 'next/dynamic';
+
+const NotFound = dynamic(() => import('@/components/NotFound/NotFound'), {
+  ssr: false
+});
 
 
 export default function Home() {
@@ -102,6 +107,22 @@ export default function Home() {
       <div className={styles.container}>
         <Background />
         <div className={styles.loading}>Loading characters...</div>
+      </div>
+    );
+  }
+
+  if (searchTerm && allCharacters.length === 0) {
+    return (
+      <div className={styles.container}>
+        <Background />
+        <div className={styles.content}>
+          <Logo />
+          <NotFound 
+            searchTerm={searchTerm}
+            onClearSearch={handleClearSearch}
+          />
+        </div>
+        <div className={styles.bottomGradient}></div>
       </div>
     );
   }
