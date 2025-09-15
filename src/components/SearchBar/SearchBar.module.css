@@ -1,208 +1,80 @@
-.detailContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px 0 0 20px;
-  padding: 0;
-  backdrop-filter: blur(10px);
-  border: none;
-  width: 100%;
-  height: 100%;
+.searchContainer {
   position: relative;
-  overflow: hidden;
-  box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.3), inset 0 -10px 20px rgba(0, 0, 0, 0.3), inset 0 10px 20px rgba(0, 0, 0, 0.3), inset 10px 0 20px rgba(0, 0, 0, 0.3);
-}
-
-.imageContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px 0 0 20px;
-  overflow: hidden;
-}
-
-.characterImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.statusIndicator {
-  position: absolute;
-  top: 15px;
-  left: 15px;
+  width: 80%;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 8px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  z-index: 2;
 }
 
-.statusDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.alive {
-  background: radial-gradient(circle, #F1F510 0%, #608F09 100%);
-  box-shadow: 0 0 10px rgba(118, 221, 0, 0.6);
-}
-
-.dead {
-  background: radial-gradient(circle, #E92507 0%, #7C1616 100%);
-  box-shadow: 0 0 10px rgba(233, 37, 7, 0.6);
-}
-
-.unknown {
-  background: radial-gradient(circle, #C1C1C1 0%, #7B7B7BB2 100%);
-  box-shadow: 0 0 10px rgba(193, 193, 193, 0.6);
-}
-
-.statusText {
-  color: white;
-  font-weight: 600;
-}
-
-.characterInfo {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.searchInput {
   width: 100%;
-  height: auto;
-  min-height: 120px;
+  padding: 15px 50px 15px 50px;
   background: rgba(0, 0, 0, 0.7);
-  text-align: left;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  border: 2px solid #76DD00;
+  border-radius: 8px;
+  color: #76DD00;
+  font-size: 16px;
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.searchInput::placeholder {
+  color: #76DD00;
+}
+
+.searchInput:focus {
+  box-shadow: 0 0 8px #76DD00;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #76DD00;
+  pointer-events: none;
   z-index: 1;
 }
 
-.characterName {
-  font-size: 24px;
-  font-weight: 300;
-  margin-bottom: 4px;
-  color: #76DD00;
-  text-shadow: 0 0 10px rgba(118, 221, 0, 0.3);
-  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
-  text-align: left;
-}
-
-.characterDetails {
-  margin-bottom: 12px;
+.clearButton {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  align-items: center;
+  justify-content: center;
 }
 
-.species, .type {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 18px;
-  margin: 2px 0;
-  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
-  font-weight: 400;
-  text-align: left;
-}
-
-.infoGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  width: 100%;
-}
-
-.infoItem {
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.label {
-  display: block;
-  font-size: 18px;
-  font-weight: 300;
-  color: #76DD00;
-  margin-bottom: 2px;
-  letter-spacing: 0.5px;
-  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
-}
-
-.value {
-  display: block;
-  font-size: 18px;
-  color: white;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
-}
-
-@media (max-width: 768px) {
-  .detailContainer {
-    padding: 0;
-    max-width: 100%;
-    border-radius: 20px;
-    box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.3), inset 0 -10px 20px rgba(0, 0, 0, 0.3);
-    height: 400px;
-    min-height: 400px;
-  }
-
-  .imageContainer {
-    border-radius: 20px;
-  }
-
-  .characterName {
-    font-size: 20px;
-  }
-
-  .infoGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-
-  .characterInfo {
-    padding: 15px;
-    height: auto;
-    min-height: 140px;
-  }
+.clearButton:hover {
+  color: #000;
+  background: #C1C1C1;
 }
 
 @media (max-width: 480px) {
-  .detailContainer {
-    height: 350px;
-    min-height: 350px;
+  .searchContainer {
+    width: 90%;
   }
 
-  .characterName {
-    font-size: 16px;
-  }
-
-  .infoGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
-  }
-
-  .characterInfo {
-    padding: 10px;
-    height: auto;
-    min-height: 120px;
-  }
-
-  .label {
+  .searchInput {
+    padding: 12px 45px 12px 45px;
     font-size: 14px;
   }
-
-  .value {
-    font-size: 14px;
+  
+  .searchIcon {
+    left: 12px;
+  }
+  
+  .clearButton {
+    right: 12px;
   }
 }
