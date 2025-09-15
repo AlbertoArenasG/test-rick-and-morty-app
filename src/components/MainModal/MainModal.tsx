@@ -2,6 +2,7 @@
 
 import { Character } from '@/lib/types';
 import CharacterGrid from '@/components/CharacterGrid/CharacterGrid';
+import CharacterDetail from '@/components/CharacterDetail/CharacterDetail';
 import styles from './MainModal.module.css';
 
 interface MainModalProps {
@@ -32,6 +33,11 @@ export default function MainModal({
       <div className={styles.modalContent}>
         {/* Left Section - Character Details (Desktop) */}
         <div className={styles.leftSection}>
+          {selectedCharacter && (
+            <CharacterDetail 
+              character={selectedCharacter}
+            />
+          )}
         </div>
 
         {/* Right Section - Search, Grid, Favs (Desktop) */}
@@ -41,6 +47,15 @@ export default function MainModal({
             selectedCharacter={selectedCharacter}
             onCharacterSelect={handleCharacterSelect}
           />
+
+          {/* Character Detail for Mobile - shown between grid and favs */}
+          {selectedCharacter && (
+            <div className={styles.mobileCharacterDetail}>
+              <CharacterDetail 
+                character={selectedCharacter}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
