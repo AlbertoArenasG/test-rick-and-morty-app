@@ -25,22 +25,6 @@ npm run dev
 
 La app quedará disponible en `http://localhost:3000`.
 
-## Pruebas unitarias
-
-Se configuró Jest + React Testing Library.
-
-- Ejecutar suite:
-
-```
-npm test
-```
-
-- Modo watch:
-
-```
-npm run test:watch
-```
-
 ## ¿Qué es lo que más me gustó de mi desarrollo?
 
 - Fui capaz de agregar funcionalidad que no estaba definida en el look and feel de Figma, pero que considero aporta a la experiencia de usuario. La curiosidad y la experiencia te llevan a cuestionar y mejorar el desarrollo de cualquier producto.
