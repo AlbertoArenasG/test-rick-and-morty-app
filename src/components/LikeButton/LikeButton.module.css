@@ -1,0 +1,44 @@
+.likeButton {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 6px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 0 auto;
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+}
+
+.likeButton:hover {
+  background: transparent;
+}
+
+.liked {
+  color: white;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background: transparent;
+}
+
+.heartIcon {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .likeButton {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+}
