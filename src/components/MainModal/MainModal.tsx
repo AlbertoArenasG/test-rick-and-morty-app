@@ -1,8 +1,9 @@
 'use client';
 
-import { Character } from '@/lib/types';
+import { Character, ApiInfo } from '@/lib/types';
 import CharacterGrid from '@/components/CharacterGrid/CharacterGrid';
 import CharacterDetail from '@/components/CharacterDetail/CharacterDetail';
+import SearchBar from '@/components/SearchBar/SearchBar';
 import styles from './MainModal.module.css';
 
 interface MainModalProps {
@@ -10,7 +11,12 @@ interface MainModalProps {
   displayedCharacters: Character[];
   selectedCharacter: Character | null;
   onCharacterSelect: (character: Character) => void;
+  searchTerm: string;
+  onSearchChange: (value: string) => void;
+  apiInfo: ApiInfo | null;
+  currentPage: number;
   onSelectedIndexChange: (index: number) => void;
+  onClearSearch: () => void;
 }
 
 export default function MainModal({
@@ -18,7 +24,12 @@ export default function MainModal({
   displayedCharacters,
   selectedCharacter,
   onCharacterSelect,
+  searchTerm,
+  onSearchChange,
+  apiInfo,
+  currentPage,
   onSelectedIndexChange,
+  onClearSearch,
 }: MainModalProps) {
   const handleCharacterSelect = (character: Character) => {
     onCharacterSelect(character);
@@ -42,6 +53,12 @@ export default function MainModal({
 
         {/* Right Section - Search, Grid, Favs (Desktop) */}
         <div className={styles.rightSection}>
+          <SearchBar 
+            searchTerm={searchTerm}
+            onSearchChange={onSearchChange}
+            onClear={onClearSearch}
+          />
+
           <CharacterGrid 
             characters={displayedCharacters}
             selectedCharacter={selectedCharacter}
