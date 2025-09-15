@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Character } from '@/lib/types';
-import Image from 'next/image';
+import CharacterCard from '@/components/CharacterCard/CharacterCard';
 import styles from './CharacterGrid.module.css';
 
 interface CharacterGridProps {
@@ -54,18 +54,12 @@ export default function CharacterGrid({
   return (
     <div className={styles.charactersGrid}>
       {charactersToShow.map(character => (
-        <div
+        <CharacterCard
           key={character.id}
-          className={`${styles.characterCard} ${selectedCharacter?.id === character.id ? styles.selected : ''}`}
-          onClick={() => onCharacterSelect(character)}
-        >
-          <Image
-            src={character.image}
-            alt={character.name} width={24}
-            height={24}
-          />
-          <p>{character.name}</p>
-        </div>
+          character={character}
+          onSelect={() => onCharacterSelect(character)}
+          isSelected={selectedCharacter?.id === character.id}
+        />
       ))}
     </div>
   );
