@@ -5,6 +5,7 @@ import { rickMortyApi } from '@/lib/services/rickMortyApi';
 import { Character } from '@/lib/types';
 import styles from './page.module.css';
 import Background from '@/components/Background/Background';
+import Logo from '@/components/Logo/Logo';
 import MainModal from '@/components/MainModal/MainModal';
 
 
@@ -51,6 +52,8 @@ export default function Home() {
     <div className={styles.container}>
       <Background />
       <div className={styles.content}>
+        <Logo />
+
         <MainModal
           allCharacters={allCharacters}
           displayedCharacters={displayedCharacters}
@@ -59,6 +62,7 @@ export default function Home() {
           onSelectedIndexChange={setSelectedIndex}
         />
       </div>
+      <div className={styles.bottomGradient}></div>
     </div>
   );
 }
