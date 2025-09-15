@@ -48,11 +48,16 @@ export default function Home() {
   
   const fetchCharacters = async () => {
     try {
+      setLoading(true);
       const data = await rickMortyApi.getCharacters(currentPage);
       setAllCharacters(data.results);
+      setApiInfo(data.info);
       setCurrentBlockIndex(0);
+      setSelectedIndex(0);
+      setLoading(false);
     } catch (error) {
       console.error('Error fetching characters:', error);
+      setLoading(false);
     }
   };
 
@@ -141,8 +146,13 @@ export default function Home() {
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
           apiInfo={apiInfo}
-          currentPage={currentPage}
+          currentBlockIndex={currentBlockIndex}
+          selectedIndex={selectedIndex}
+          onPageChange={setCurrentPage}
+          onBlockIndexChange={setCurrentBlockIndex}
           onSelectedIndexChange={setSelectedIndex}
+          setAllCharacters={setAllCharacters}
+          setApiInfo={setApiInfo}
           onClearSearch={handleClearSearch}
         />
       </div>

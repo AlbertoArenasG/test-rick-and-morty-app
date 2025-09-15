@@ -1,0 +1,84 @@
+.chevronButton {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: none;
+  background: #7B7B7BB2;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 0;
+}
+
+.chevronButton:hover:not(:disabled) {
+  background: #7B7B7BB2;
+  color: #76DD00;
+}
+
+.chevronButton:active:not(:disabled) {
+  background: #5B5454B2;
+}
+
+.chevronButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.chevronIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.baseIcon {
+  opacity: 1;
+}
+
+.hoverIcon {
+  opacity: 0;
+}
+
+.clickIcon {
+  opacity: 0;
+}
+
+.chevronButton:hover:not(:disabled) .baseIcon {
+  opacity: 0;
+}
+
+.chevronButton:hover:not(:disabled) .hoverIcon {
+  opacity: 1;
+}
+
+.chevronButton:active:not(:disabled) .baseIcon,
+.chevronButton:active:not(:disabled) .hoverIcon {
+  opacity: 0;
+}
+
+.chevronButton:active:not(:disabled) .clickIcon {
+  opacity: 1;
+}
+
+.mobileIcon {
+  display: none;
+}
+
+.desktopIcon {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mobileIcon {
+    display: block;
+  }
+
+  .desktopIcon {
+    display: none;
+  }
+}
