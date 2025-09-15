@@ -18,6 +18,16 @@
   min-height: 100vh;
 }
 
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #76DD00;
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .bottomGradient {
   position: fixed;
   bottom: 0;
