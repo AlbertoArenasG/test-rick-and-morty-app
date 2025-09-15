@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Gracias por la oportunidad de participar en el proceso de selección para la posición de Tech Lead Frontend. A continuación encontrarás cómo levantar el proyecto y algunas reflexiones sobre el desarrollo.
 
-## Getting Started
+**Stack:** Node 22, React 19, Next 15.
 
-First, run the development server:
+## Instrucciones de ejecución
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Requisitos: Node 22 (ideal). El proyecto define `engines` en `package.json` para guiar la versión.
+- Variables de entorno: este proyecto consume la API pública de Rick & Morty. Configura el endpoint en un archivo `.env.local` en la raíz del proyecto:
+
+```
+NEXT_PUBLIC_RICK_MORTY_API_URL=https://rickandmortyapi.com/api
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Instalación de dependencias:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Levantar en desarrollo:
 
-## Learn More
+```
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+La app quedará disponible en `http://localhost:3000`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pruebas unitarias
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Se configuró Jest + React Testing Library.
 
-## Deploy on Vercel
+- Ejecutar suite:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+npm test
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Modo watch:
+
+```
+npm run test:watch
+```
+
+## ¿Qué es lo que más me gustó de mi desarrollo?
+
+- Fui capaz de agregar funcionalidad que no estaba definida en el look and feel de Figma, pero que considero aporta a la experiencia de usuario. La curiosidad y la experiencia te llevan a cuestionar y mejorar el desarrollo de cualquier producto.
+
+## Si hubiera tenido más tiempo, ¿qué hubiera mejorado o qué más habría hecho?
+
+1. Habría definido una paleta de colores declarando variables reutilizables en todos los componentes (no lo hice por el poco tiempo disponible).
+2. Habría creado pruebas unitarias (no lo hice por el poco tiempo disponible).
+3. Habría implementado una estructura más modular basada en principios de arquitectura limpia para desacoplar la lógica de negocio de la capa de presentación. Aunque este proyecto es pequeño, me habría gustado mostrar una estructura pensada para escalar a proyectos más complejos.
+
+## Pain points / Bugs encontrados y cómo los resolví
+
+1. Visualización en UI por bloques: el API entrega páginas de 20 personajes pero la interfaz pedía bloques de 4 para desktop y de 2 para mobile, además de manejar el paginado interno sin romper la experiencia. Opté por una lógica de “bloques” (4 en desktop, 2 en mobile) y media queries, manejando índices y páginas de forma controlada.
+2. Ambigüedad en Figma: faltaban detalles de comportamientos específicos. Decidí resolverlos con base en patrones comunes y experiencia previa para mantener consistencia y usabilidad.
+3. Diferencias notables entre mobile y desktop: había que distribuir varios elementos de forma distinta en cada vista. Usé CSS puro con media queries para acercarme lo más posible al diseño solicitado, manteniendo el layout estable.
