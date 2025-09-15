@@ -50,6 +50,54 @@
   display: none;
 }
 
+.characterSection {
+  width: 100%;
+}
+
+.favsSection {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 50%;
+}
+
+.favsButton {
+  background: #5B5454;
+  border: 2px solid #5B5454;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 10px 10px 0px 0px;
+  cursor: pointer;
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin: 0;
+}
+
+.favsButton:hover {
+  background: #5B5454;
+  border-color: #5B5454;
+  color: #76DD00;
+}
+
+.favsButton.hidden {
+  display: none;
+}
+
+.prevButton {
+  bottom: 80%;
+  right: 10px;
+}
+
+.nextButton {
+  top: 80%;
+  right: 10px;
+}
+
 @media (max-width: 768px) {
   .modal {
     padding: 0;
@@ -89,10 +137,40 @@
     padding: 20px 20px 0px 20px;
     justify-content: space-between;
   }
+
+  .favsSection {
+    order: 3;
+    margin: 0;
+    padding: 0;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .prevButton {
+    top: 50%;
+    left: 30px;
+    right: auto;
+    transform: translateY(-50%);
+  }
+  
+  .nextButton {
+    top: 50%;
+    right: 30px;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
 }
 
 @media (max-width: 480px) {
   .modalContent {
     padding: 15px;
   }
+
+  .characterSection {
+    gap: 20px;
+  }
 }
+  .rightSection {
+    padding: 15px;
+  }

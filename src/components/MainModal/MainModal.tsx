@@ -1,10 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import { rickMortyApi } from '@/lib/services/rickMortyApi';
 import { Character, ApiInfo } from '@/lib/types';
 import CharacterGrid from '@/components/CharacterGrid/CharacterGrid';
 import CharacterDetail from '@/components/CharacterDetail/CharacterDetail';
 import SearchBar from '@/components/SearchBar/SearchBar';
+import FavoritesList from '@/components/FavoritesList/FavoritesList';
 import ChevronButton from '@/components/ChevronButton/ChevronButton';
 import styles from './MainModal.module.css';
 
@@ -43,6 +45,8 @@ export default function MainModal({
   setApiInfo,
   onClearSearch
 }: MainModalProps) {
+  const [showFavorites, setShowFavorites] = useState(false);
+
   const handleCharacterSelect = (character: Character) => {
     onCharacterSelect(character);
     const newIndex = displayedCharacters.findIndex(c => c.id === character.id);
@@ -161,6 +165,22 @@ export default function MainModal({
               />
             </div>
           )}
+
+          {/* Favorites Section - Inside right section for desktop */}
+          <div className={styles.favsSection}>
+            <button 
+              className={`${styles.favsButton} ${showFavorites ? styles.hidden : ''}`}
+              onClick={() => setShowFavorites(!showFavorites)}
+            >
+              FAVS
+            </button>
+            {showFavorites && (
+              <FavoritesList
+                onCharacterSelect={handleCharacterSelect}
+                onClose={() => setShowFavorites(false)}
+              />
+            )}
+          </div>
         </div>
 
         {/* Navigation Buttons */}

@@ -1,0 +1,126 @@
+.favoritesContainer {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #5B5454;
+  border-radius: 10px 10px 0px 0px;
+  padding: 0;
+  margin-bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 15px;
+  background: #5B5454;
+}
+
+.header span {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  line-height: 1.2;
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+}
+
+.favoritesList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: #5B5454;
+  padding: 2px;
+  padding-bottom: 20px;
+}
+
+.favoriteItemContainer {
+  display: flex;
+  align-items: center;
+  background: #9C9C9C;
+  border: 2px solid #494949;
+  border-radius: 4px;
+  padding: 0;
+  min-height: 50px;
+}
+
+.favoriteItem {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  text-align: left;
+  letter-spacing: 0.5px;
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+  flex: 1;
+  text-transform: uppercase;
+}
+
+.favoriteItem:hover {
+  background: rgba(118, 221, 0, 0.1);
+  color: #76DD00;
+}
+
+.removeButton {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.removeButton:hover {
+  background: rgba(255, 77, 79, 0.1);
+}
+
+.emptyMessage {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+  background: #666666;
+}
+
+@media (max-width: 480px) {
+  .favoritesContainer {
+    width: 100%;
+  }
+
+  .favoriteItem {
+    padding: 12px 15px;
+    font-size: 12px;
+  }
+
+  .header {
+    padding: 12px;
+  }
+
+  .header span {
+    font-size: 9px;
+  }
+
+  .removeButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .favoriteItemContainer {
+    min-height: 40px;
+  }
+}
