@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { rickMortyApi } from '@/lib/services/rickMortyApi';
 import { Character } from '@/lib/types';
 import styles from './page.module.css';
+import Background from '@/components/Background/Background';
 import MainModal from '@/components/MainModal/MainModal';
 
 
@@ -48,6 +49,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
+      <Background />
       <div className={styles.content}>
         <MainModal
           allCharacters={allCharacters}
